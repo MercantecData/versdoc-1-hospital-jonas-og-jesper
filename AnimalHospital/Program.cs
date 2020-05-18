@@ -40,7 +40,7 @@ namespace AnimalHospital
             }
             else if (k == '4')
             {
-                Console.WriteLine("Not yet implemented!");
+                WriteLine("Not yet implemented!");
             }
             else if (k == '5')
             {
