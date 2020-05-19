@@ -14,7 +14,7 @@ namespace AnimalHospital
         public List<Doctor> doctors = new List<Doctor>();
         
 
-        // laver en public underdel af classen hospital
+        // laver en public, som er en underdel af classen hospital
         public Hospital(string name)
         {
             this.name = name;
