@@ -114,6 +114,7 @@ namespace AnimalHospital
             new Patient(name, age).AdmitTo(hospital);
         }
 
+        
         static Hospital InitializeHospital()
         {
             Hospital hospital = new Hospital("Animal Hospital");
@@ -128,8 +129,10 @@ namespace AnimalHospital
 
             return hospital;
         }
+        // Her bliver der oprettede nr5 i menuen med at give en patient en doctor
         static void Doktorogpatientt()
         {
+            // Her bliver der oprettede navne på alle patienter og doctore så vi kan se hvem der er på hospitalet
             Console.WriteLine();
             Console.WriteLine("Patienter");
             foreach (Patient i in hospital.patients)
@@ -147,6 +150,7 @@ namespace AnimalHospital
             Console.WriteLine();
             Console.WriteLine("Vælg en patient");
 
+            // Her begynder vi rigtigt efter vi er gået ind på 5 i menuen hvor vi skriver ned først og så doctoren
             string okay = Console.ReadLine();
             for (int i = 0; i < hospital.patients.Count; i++)
             {
@@ -169,6 +173,7 @@ namespace AnimalHospital
                 }
             }
         }
+        // Her bliver der oprettede nr4 i menuen som så gør at vi kan se alle doctorende i hospitalet
         static void DoktorList()
         {
             List<string> Dliste = new List<string>();
