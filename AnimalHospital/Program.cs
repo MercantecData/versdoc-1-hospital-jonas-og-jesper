@@ -33,6 +33,7 @@ namespace AnimalHospital
             }
             else if (k == '2')
             {
+
                 string navn;
 
                 Console.WriteLine("Navnet på personen");
@@ -43,10 +44,6 @@ namespace AnimalHospital
 
                 hospital.DischargePatient(fjerne);
             }
-
-            else if (k == '3')
-            {
-
                 foreach (Patient i in hospital.patients)
                 {
                     Console.WriteLine(i.name);
@@ -54,9 +51,7 @@ namespace AnimalHospital
             }
             else if (k == '4')
             {
-
                 DoktorList();
-
             }
             else if (k == '5')
             {
