@@ -1,7 +1,11 @@
 ﻿using System;
+
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+
+using System.Collections.Generic;
+
 
 namespace AnimalHospital
 {
@@ -34,19 +38,39 @@ namespace AnimalHospital
                 AdmitPatient();
             }
             else if (k == '2')
+
             {
                 Console.WriteLine("Not yet implemented!");
             }
             else if (k == '3')
+
             {
-                Console.WriteLine("Not yet implemented!");
+
+                string navn;
+
+                Console.WriteLine("Navnet på personen");
+
+                navn = Console.ReadLine();
+
+                var fjerne = hospital.FindPatientByName(navn);
+
+                hospital.DischargePatient(fjerne);
+            }
+                foreach (Patient i in hospital.patients)
+                {
+                    Console.WriteLine(i.name);
+                }
             }
             else if (k == '4')
             {
+
                 foreach (Doctor i in hospital.doctors)
                 {
                     Console.WriteLine(i.name);
                 }
+
+                DoktorList();
+
             }
             else if (k == '5')
             {
@@ -94,6 +118,7 @@ namespace AnimalHospital
             return hospital;
         }
 
+
         static void Doktorogpatientt()
         {
             Console.WriteLine();
@@ -134,6 +159,18 @@ namespace AnimalHospital
                     Console.WriteLine("doctoren der bliver udladveret er " + doc + " som personens doctor");
                 }
             }
+        }
+
+
+        static void DoktorList()
+        {
+            List<string> Dliste = new List<string>();
+            Dliste.Add("Matt Tennant, Spinal Injury");
+            Dliste.Add("David Smith, Knee Injury");
+            Dliste.Add("Jodie Tyler, Oncology");
+            Dliste.Add("Rose Whitaker, Intensive Care");
+
+            Dliste.ForEach(Console.WriteLine);
         }
 
     }
