@@ -34,15 +34,16 @@ namespace AnimalHospital
             else if (k == '2')
             {
 
-                Console.WriteLine("Not yet implemented!");
+                string navn;
+
+                Console.WriteLine("Navnet på personen");
+
+                navn = Console.ReadLine();
+
+                var fjerne = hospital.FindPatientByName(navn);
+
+                hospital.DischargePatient(fjerne);
             }
-            
-
-                
-            } 
-            else if(k == '3')
-
-            {
                 foreach (Patient i in hospital.patients)
                 {
                     Console.WriteLine(i.name);
@@ -50,10 +51,7 @@ namespace AnimalHospital
             }
             else if (k == '4')
             {
-
-                DoktorList()
-
-
+                DoktorList();
             }
             else if (k == '5')
             {
