@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AnimalHospital
 {
@@ -8,7 +11,7 @@ namespace AnimalHospital
         static void Main(string[] args)
         {
             hospital = InitializeHospital();
-            while (MainMenu()) {}
+            while (MainMenu()) { }
 
             Console.WriteLine("Goodbye!");
         }
@@ -26,25 +29,28 @@ namespace AnimalHospital
             Console.WriteLine();
 
             var k = Console.ReadKey().KeyChar;
-            if(k == '1')
+            if (k == '1')
             {
                 AdmitPatient();
-            } 
-            else if(k == '2')
+            }
+            else if (k == '2')
             {
                 Console.WriteLine("Not yet implemented!");
-            } 
-            else if(k == '3')
+            }
+            else if (k == '3')
             {
                 Console.WriteLine("Not yet implemented!");
             }
             else if (k == '4')
             {
-                Console.WriteLine("Not yet implemented!");
+                foreach (Doctor i in hospital.doctors)
+                {
+                    Console.WriteLine(i.name);
+                }
             }
             else if (k == '5')
             {
-                Console.WriteLine("Not yet implemented!");
+                Doktorogpatientt();  
             }
             else if (k == '0')
             {
@@ -65,7 +71,7 @@ namespace AnimalHospital
             name = Console.ReadLine();
 
             Console.WriteLine("What is the patients age?");
-            while(!int.TryParse(Console.ReadLine(), out age))
+            while (!int.TryParse(Console.ReadLine(), out age))
             {
                 Console.WriteLine("You must write a number, try again");
             }
@@ -87,5 +93,48 @@ namespace AnimalHospital
 
             return hospital;
         }
+
+        static void Doktorogpatientt()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Patienter");
+            foreach (Patient i in hospital.patients)
+            {
+                Console.WriteLine(i.name);
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Doctor");
+            foreach (Doctor i in hospital.doctors)
+            {
+                Console.WriteLine(i.name);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Vælg en patient");
+
+            string okay = Console.ReadLine();
+            for (int i = 0; i < hospital.patients.Count; i++)
+            {
+                string pations = hospital.patients[i].name;
+                if (okay == pations)
+                {
+                   string pat = hospital.patients[i].name;
+                   Console.WriteLine("patienten er " + pat );
+                }
+            }
+            Console.WriteLine("Vælg en doctor til patienten");
+            string okay1 = Console.ReadLine();
+            for (int i = 0; i < hospital.doctors.Count; i++)
+            {
+                string doctors = hospital.doctors[i].name;
+                if (okay1 == doctors)
+                {
+                    string doc = hospital.doctors[i].name;
+                    Console.WriteLine("doctoren der bliver udladveret er " + doc + " som personens doctor");
+                }
+            }
+        }
+
     }
 }

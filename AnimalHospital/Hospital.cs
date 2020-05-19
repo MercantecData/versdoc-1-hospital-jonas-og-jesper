@@ -10,6 +10,7 @@ namespace AnimalHospital
 
         public List<Patient> patients = new List<Patient>();
         public List<Doctor> doctors = new List<Doctor>();
+        
 
         public Hospital(string name)
         {
@@ -51,5 +52,6 @@ namespace AnimalHospital
 
             return null;
         }
+
     }
 }
