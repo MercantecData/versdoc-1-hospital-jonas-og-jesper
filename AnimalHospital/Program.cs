@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+
+using System.Collections.Generic;
+
+
 namespace AnimalHospital
 {
     class Program
@@ -38,7 +45,6 @@ namespace AnimalHospital
                 // starter functionen AdmitPatient, som er defineret sidst i koden 
                 AdmitPatient();
             }
-            // tjekker om k er lig med 2
             else if (k == '2')
             {
                 // definere en string til senere brug
@@ -66,13 +72,19 @@ namespace AnimalHospital
             else if (k == '4')
             {
                 // kører funktionen DoktorList som er defineret længere nede
+
+                foreach (Doctor i in hospital.doctors)
+                {
+                    Console.WriteLine(i.name);
+                }
+                // kører funktionen DoktorList som er defineret længere nede
                 DoktorList();
 
             }
             // tjekker om k er lig med 5
             else if (k == '5')
             {
-                Console.WriteLine("Not yet implemented!");
+                Doktorogpatientt();  
             }
             // tjekker om k er lig med 0
             else if (k == '0')
@@ -118,6 +130,47 @@ namespace AnimalHospital
             });
 
             return hospital;
+        }
+        static void Doktorogpatientt()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Patienter");
+            foreach (Patient i in hospital.patients)
+            {
+                Console.WriteLine(i.name);
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Doctor");
+            foreach (Doctor i in hospital.doctors)
+            {
+                Console.WriteLine(i.name);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Vælg en patient");
+
+            string okay = Console.ReadLine();
+            for (int i = 0; i < hospital.patients.Count; i++)
+            {
+                string pations = hospital.patients[i].name;
+                if (okay == pations)
+                {
+                   string pat = hospital.patients[i].name;
+                   Console.WriteLine("patienten er " + pat );
+                }
+            }
+            Console.WriteLine("Vælg en doctor til patienten");
+            string okay1 = Console.ReadLine();
+            for (int i = 0; i < hospital.doctors.Count; i++)
+            {
+                string doctors = hospital.doctors[i].name;
+                if (okay1 == doctors)
+                {
+                    string doc = hospital.doctors[i].name;
+                    Console.WriteLine("doctoren der bliver udladveret er " + doc + " som personens doctor");
+                }
+            }
         }
         static void DoktorList()
         {
