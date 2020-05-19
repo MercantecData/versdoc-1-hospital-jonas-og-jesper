@@ -33,15 +33,27 @@ namespace AnimalHospital
             }
             else if (k == '2')
             {
+
                 Console.WriteLine("Not yet implemented!");
             }
-            else if (k == '3')
+            
+
+                
+            } 
+            else if(k == '3')
+
             {
-                Console.WriteLine("Not yet implemented!");
+                foreach (Patient i in hospital.patients)
+                {
+                    Console.WriteLine(i.name);
+                }
             }
             else if (k == '4')
             {
-                DoktorList();
+
+                DoktorList()
+
+
             }
             else if (k == '5')
             {
