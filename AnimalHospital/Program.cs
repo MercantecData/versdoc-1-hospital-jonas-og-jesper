@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
-
-using System.Collections.Generic;
 
 
 namespace AnimalHospital
@@ -71,8 +67,6 @@ namespace AnimalHospital
             // tjekker om k er lig med 4
             else if (k == '4')
             {
-                // kører funktionen DoktorList som er defineret længere nede
-
                 foreach (Doctor i in hospital.doctors)
                 {
                     Console.WriteLine(i.name);
@@ -102,18 +96,21 @@ namespace AnimalHospital
 
         static void AdmitPatient()
         {
+            // definere en int og string uden værdi som kan bruges længere nede
             string name;
             int age;
 
             Console.WriteLine("What is the patients name?");
+            // laver en Console.Readline, hvor værdien af den bliver gemt i name, som vi definerede længere oppe som en string
             name = Console.ReadLine();
 
             Console.WriteLine("What is the patients age?");
+            // køre et loop, hvor man tvinger loopet til kun at godtage tal og console.readline værdien bliver gemt i age som er en int
             while (!int.TryParse(Console.ReadLine(), out age))
             {
                 Console.WriteLine("You must write a number, try again");
             }
-
+            // opretter patienten i patients, med værdien fra console.readline
             new Patient(name, age).AdmitTo(hospital);
         }
 
