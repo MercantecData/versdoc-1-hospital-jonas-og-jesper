@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -44,14 +45,7 @@ namespace AnimalHospital
                 // starter functionen AdmitPatient, som er defineret sidst i koden 
                 AdmitPatient();
             }
-            // tjekker om k er lig med 2
             else if (k == '2')
-
-            {
-                Console.WriteLine("Not yet implemented!");
-            }
-            else if (k == '3')
-
             {
                 // definere en string til senere brug
                 string navn;
@@ -77,16 +71,13 @@ namespace AnimalHospital
             // tjekker om k er lig med 4
             else if (k == '4')
             {
-
+                // kører funktionen DoktorList som er defineret længere nede
 
                 foreach (Doctor i in hospital.doctors)
                 {
                     Console.WriteLine(i.name);
                 }
-
-
                 // kører funktionen DoktorList som er defineret længere nede
-
                 DoktorList();
 
             }
@@ -140,8 +131,6 @@ namespace AnimalHospital
 
             return hospital;
         }
-
-
         static void Doktorogpatientt()
         {
             Console.WriteLine();
@@ -183,8 +172,6 @@ namespace AnimalHospital
                 }
             }
         }
-
-
         static void DoktorList()
         {
             List<string> Dliste = new List<string>();
@@ -195,6 +182,5 @@ namespace AnimalHospital
 
             Dliste.ForEach(Console.WriteLine);
         }
-
     }
 }
