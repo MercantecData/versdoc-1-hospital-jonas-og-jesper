@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AnimalHospital
 {
@@ -8,7 +9,7 @@ namespace AnimalHospital
         static void Main(string[] args)
         {
             hospital = InitializeHospital();
-            while (MainMenu()) {}
+            while (MainMenu()) { }
 
             Console.WriteLine("Goodbye!");
         }
@@ -26,15 +27,21 @@ namespace AnimalHospital
             Console.WriteLine();
 
             var k = Console.ReadKey().KeyChar;
-            if(k == '1')
+            if (k == '1')
             {
                 AdmitPatient();
-            } 
-            else if(k == '2')
+            }
+            else if (k == '2')
             {
+
+                Console.WriteLine("Not yet implemented!");
+            }
+            
+
                 
             } 
             else if(k == '3')
+
             {
                 foreach (Patient i in hospital.patients)
                 {
@@ -43,7 +50,10 @@ namespace AnimalHospital
             }
             else if (k == '4')
             {
-                WriteLine("Not yet implemented!");
+
+                DoktorList()
+
+
             }
             else if (k == '5')
             {
@@ -68,7 +78,7 @@ namespace AnimalHospital
             name = Console.ReadLine();
 
             Console.WriteLine("What is the patients age?");
-            while(!int.TryParse(Console.ReadLine(), out age))
+            while (!int.TryParse(Console.ReadLine(), out age))
             {
                 Console.WriteLine("You must write a number, try again");
             }
@@ -89,6 +99,16 @@ namespace AnimalHospital
             });
 
             return hospital;
+        }
+        static void DoktorList()
+        {
+            List<string> Dliste = new List<string>();
+            Dliste.Add("Matt Tennant, Spinal Injury");
+            Dliste.Add("David Smith, Knee Injury");
+            Dliste.Add("Jodie Tyler, Oncology");
+            Dliste.Add("Rose Whitaker, Intensive Care");
+
+            Dliste.ForEach(Console.WriteLine);
         }
     }
 }
