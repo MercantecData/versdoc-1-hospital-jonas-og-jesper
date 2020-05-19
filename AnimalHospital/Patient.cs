@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AnimalHospital
 {
+    // Her bliver der oprettede et object som bliver brugt til Patienter
     class Patient
     {
         public string name;
@@ -16,6 +17,7 @@ namespace AnimalHospital
             this.age = age;
         }
 
+     // Her bliver der lavet noget i forbindelse med oprettelsen af en Patient i porgram.cs
         public void AdmitTo(Hospital hospital)
         {
             hospital.AdmitPatient(this);
